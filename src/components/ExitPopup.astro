@@ -1,0 +1,45 @@
+---
+const { whatsappLink } = Astro.props;
+---
+<div id="exit-popup" class="hidden fixed inset-0 z-[10000] bg-slate-900/60 backdrop-blur-md items-center justify-center p-4">
+    <div class="bg-white rounded-[2rem] max-w-md w-full p-10 text-center relative shadow-2xl border border-white/20">
+        <button id="close-exit-popup" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-colors">✕</button>
+        
+        <div class="text-5xl mb-6">🚨</div>
+        <h3 class="text-2xl font-black text-slate-900 mb-2">Tunggu! Jangan pergi dulu.</h3>
+        <p class="text-slate-500 mb-1">Deadline-mu tidak akan nunggu kamu siap.</p>
+        <p class="text-orange-500 font-bold mb-8">Konsultasi pertama 100% GRATIS.</p>
+        
+        <a href={whatsappLink} class="block w-full py-4 bg-orange-500 text-white rounded-full font-black text-lg shadow-xl shadow-orange-500/30 transition-all hover:-translate-y-1 hover:bg-orange-600 mb-4">
+            Ya, Saya Mau Konsultasi Gratis!
+        </a>
+        <button id="reject-exit-popup" class="text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors">Tidak, saya tidak butuh bantuan</button>
+    </div>
+</div>
+
+<script>
+    const popup = document.getElementById('exit-popup');
+    const closeBtn = document.getElementById('close-exit-popup');
+    const rejectBtn = document.getElementById('reject-exit-popup');
+    let exitShown = sessionStorage.getItem('kt_exit_shown');
+
+    function closePopup() {
+        popup?.classList.add('hidden');
+        popup?.classList.remove('flex');
+    }
+
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && !exitShown) {
+            popup?.classList.remove('hidden');
+            popup?.classList.add('flex');
+            exitShown = '1';
+            sessionStorage.setItem('kt_exit_shown', '1');
+        }
+    });
+
+    closeBtn?.addEventListener('click', closePopup);
+    rejectBtn?.addEventListener('click', closePopup);
+    popup?.addEventListener('click', (e) => {
+        if (e.target === popup) closePopup();
+    });
+</script>

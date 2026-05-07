@@ -1,0 +1,34 @@
+---
+const { whatsappLink } = Astro.props;
+---
+<section class="py-16 bg-orange-50">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+        <p class="text-orange-500 font-bold uppercase text-sm tracking-widest mb-3">Pernah Ngerasain Ini?</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-10">
+            Kalau iya, kamu <span class="text-orange-500">butuh Konsultech.</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
+            <div class="flex items-start gap-3 bg-white rounded-2xl p-4 shadow-sm border border-red-50">
+                <span class="text-2xl">😤</span><p class="text-slate-700 font-medium">Udah berjam-jam debug tapi error ga mau ilang</p>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-2xl p-4 shadow-sm border border-red-50">
+                <span class="text-2xl">📅</span><p class="text-slate-700 font-medium">Deadline tinggal 3 hari, progress 0%</p>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-2xl p-4 shadow-sm border border-red-50">
+                <span class="text-2xl">🤯</span><p class="text-slate-700 font-medium">Dosen ngerevisi terus tanpa penjelasan jelas</p>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-2xl p-4 shadow-sm border border-red-50">
+                <span class="text-2xl">😴</span><p class="text-slate-700 font-medium">Begadang tiap malam tapi hasilnya ga maju-maju</p>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-2xl p-4 shadow-sm border border-red-50">
+                <span class="text-2xl">🤷</span><p class="text-slate-700 font-medium">Bingung harus mulai dari mana sama sekali</p>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-2xl p-4 shadow-sm border border-red-50">
+                <span class="text-2xl">😰</span><p class="text-slate-700 font-medium">Takut maju sidang karena ga ngerti projectnya sendiri</p>
+            </div>
+        </div>
+        <a href={whatsappLink} class="inline-block mt-10 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg shadow-lg shadow-orange-500/30 transition-all hover:-translate-y-1">
+            Aku Mau Dibantu Sekarang 🚀
+        </a>
+    </div>
+</section>
