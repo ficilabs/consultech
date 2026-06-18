@@ -6,16 +6,23 @@ const { whatsappLink } = Astro.props;
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             <div class="lg:w-1/2 text-center lg:text-left">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-4">
-                    Stuck Coding? <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Skripsi Mandek?</span>
+                    Kesulitan Mengerjakan <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Proyek IoT</span> untuk Skripsi?
                 </h1>
-                <p class="text-lg md:text-xl text-slate-500 mb-8 max-w-xl mx-auto lg:mx-0">
-                    Konsultasi bareng ahlinya. Selesaikan project & skripsi tanpa pusing.
+                <p class="text-lg md:text-xl text-slate-500 mb-6 max-w-xl mx-auto lg:mx-0">
+                    Pendampingan proyek IoT mulai dari software hingga alat siap pakai untuk mahasiswa di seluruh Indonesia.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                    <a href={whatsappLink} class="w-full sm:w-auto px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg shadow-xl shadow-orange-500/30 transition-all hover:-translate-y-1">
-                        Konsultasi Gratis
+                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-6">
+                    <a href={whatsappLink} class="w-full sm:w-auto px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg shadow-xl shadow-orange-500/30 transition-all hover:-translate-y-1 text-center">
+                        Konsultasi via WhatsApp
                     </a>
-                    <span class="text-xs text-slate-400 mt-2 block">✅ Gratis. Tanpa syarat. Tanpa kartu kredit.</span>
+                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full font-bold text-lg transition-all hover:-translate-y-1 text-center">
+                        Lihat Portofolio
+                    </a>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start text-sm text-slate-500 font-medium">
+                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Konsultasi gratis</span>
+                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Support pengerjaan</span>
+                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Seluruh Indonesia</span>
                 </div>
             </div>
             <div class="lg:w-1/2 relative mt-10 lg:mt-0 w-full flex justify-center">

@@ -1,0 +1,107 @@
+---
+const { whatsappLink } = Astro.props;
+---
+<section id="harga" class="py-24 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Pilihan Paket Layanan</h2>
+            <p class="text-slate-500">Pilih paket yang paling sesuai dengan kebutuhan project Anda.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            
+            <!-- Paket Software -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col hover:border-orange-200 hover:shadow-lg hover:bg-orange-50/50 active:bg-orange-100 transition-all cursor-pointer group">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">Paket Software</h3>
+                    <p class="text-slate-500 text-sm mb-4">Cocok untuk mahasiswa yang sudah punya alat (hardware) sendiri.</p>
+                    <div class="flex items-center gap-3 mb-1">
+                        <span class="text-slate-400 line-through text-sm">Rp 1.000.000</span>
+                        <span class="bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">Diskon 25%</span>
+                    </div>
+                    <div class="text-4xl font-extrabold text-slate-900">
+                        <span class="text-xl font-bold text-slate-500">Rp</span> 750<span class="text-xl font-bold text-slate-500">.000</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 mb-8 flex-1">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Source code program lengkap</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Integrasi sensor & aktuator</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Pembuatan dashboard UI</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Konsultasi online via Zoom/Meet</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Support revisi program</span>
+                    </div>
+                </div>
+
+                <a href={whatsappLink} class="w-full block text-center py-4 rounded-xl font-bold text-orange-600 bg-orange-50 hover:bg-orange-100 transition-colors">
+                    Tanya Paket
+                </a>
+            </div>
+
+            <!-- Paket Full Package (Featured) -->
+            <div class="bg-white rounded-3xl p-8 border-2 border-orange-500 shadow-xl flex flex-col relative transform md:-translate-y-4 hover:bg-orange-50/50 active:bg-orange-100 transition-colors cursor-pointer group">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
+                    Paling Laris
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">Paket Full Package</h3>
+                    <p class="text-slate-500 text-sm mb-4">Solusi IoT lengkap dari pembuatan software hingga alat siap pakai.</p>
+                    <div class="flex items-center gap-3 mb-1">
+                        <span class="text-slate-400 line-through text-sm">Rp 2.000.000</span>
+                        <span class="bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">Diskon 25%</span>
+                    </div>
+                    <div class="text-4xl font-extrabold text-slate-900">
+                        <span class="text-xl font-bold text-slate-500">Rp</span> 1.500<span class="text-xl font-bold text-slate-500">.000</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 mb-8 flex-1">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-700 font-bold">Semua fitur Paket Software</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Komponen elektronik disediakan</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Perakitan alat (Device Assembly)</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Testing dan kalibrasi sistem</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Video dokumentasi operasional alat</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-slate-600">Support pasca pengiriman</span>
+                    </div>
+                </div>
+
+                <a href={whatsappLink} class="w-full block text-center py-4 rounded-xl font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/25">
+                    Tanya Paket
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
