@@ -22,7 +22,7 @@ export const PAGE_DESCRIPTION = 'Partner konsultasi andalan mahasiswa IT & Tekni
 // Navigation Links
 export const NAV_LINKS = [
   { label: 'Layanan', href: '#layanan' },
-  { label: 'Portofolio', href: '#portfolio' },
+  { label: 'Portofolio', href: '/portfolio' },
   { label: 'Mengapa Kami', href: '#why-us' },
   { label: 'Harga', href: '#harga' },
   { label: 'Testimoni', href: '#testimoni' },

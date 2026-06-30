@@ -43,6 +43,20 @@ export interface Testimonial {
 }
 
 /**
+ * Blog project post type
+ */
+export interface ProjectBlogPost {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image?: string;
+  codeSnippet: string;
+  tags: string[];
+  technologies: string[];
+}
+
+/**
  * Portfolio project type
  */
 export interface PortfolioProject {

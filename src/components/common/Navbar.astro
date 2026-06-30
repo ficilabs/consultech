@@ -12,6 +12,8 @@ const { whatsappLink } = Astro.props;
 
             <!-- Desktop Links -->
             <div class="hidden md:flex items-center gap-8">
+                <a href="/portfolio" class="text-sm font-semibold text-slate-600 hover:text-orange-500 transition-colors">Portofolio</a>
+                <a href="/blog" class="text-sm font-semibold text-slate-600 hover:text-orange-500 transition-colors">Blog</a>
                 <a href="#Harga" class="text-sm font-semibold text-slate-600 hover:text-orange-500 transition-colors">Harga</a>
                 <a href="#testimoni" class="text-sm font-semibold text-slate-600 hover:text-orange-500 transition-colors">Testimoni</a>
                 <a href="#tentang" class="text-sm font-semibold text-slate-600 hover:text-orange-500 transition-colors">Tentang</a>
@@ -32,7 +34,9 @@ const { whatsappLink } = Astro.props;
 
 <!-- Simple Mobile Dropdown -->
 <div id="mobile-dropdown" class="fixed top-20 left-0 w-full z-40 bg-white border-b border-slate-100 transition-all duration-300 opacity-0 -translate-y-4 pointer-events-none md:hidden">
-    <div class="px-4 py-6 flex flex-col gap-4">
+        <div class="px-4 py-6 flex flex-col gap-4">
+        <a href="/portfolio" class="mobile-link text-lg font-bold text-slate-900">Portofolio</a>
+        <a href="/blog" class="mobile-link text-lg font-bold text-slate-900">Blog</a>
         <a href="#layanan" class="mobile-link text-lg font-bold text-slate-900">Layanan</a>
         <a href="#testimoni" class="mobile-link text-lg font-bold text-slate-900">Testimoni</a>
         <a href="#tentang" class="mobile-link text-lg font-bold text-slate-900">Tentang Kami</a>

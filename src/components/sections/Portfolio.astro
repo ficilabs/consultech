@@ -1,48 +1,75 @@
 ---
+import type { PortfolioProject } from '../../types/index';
+
+interface Props {
+  projects?: PortfolioProject[];
+}
+
+const { projects = undefined } = Astro.props as Props;
 ---
-<section id="portofolio" class="py-24 bg-slate-50">
+
+<section id="portfolio" class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Project yang Pernah Dibuat</h2>
             <p class="text-slate-500">Intip hasil mentoring bareng Kampus IoT.</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Project 1 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
-                <img src="https://placehold.co/600x400/e0f2fe/0284c7?text=Smart+Traffic+Light" alt="Smart Traffic Light" class="w-full aspect-video object-cover" />
-                <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="font-bold text-xl text-slate-900 mb-2">Smart Traffic Light</h3>
-                    <p class="text-slate-600 text-sm mb-4">Sistem lampu lalu lintas pintar berbasis logika fuzzy dan prioritas RFID.</p>
-                    <div class="mt-auto">
-                        <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">ESP32 • Fuzzy Logic • RFID</p>
+            {projects ? (
+                projects.map(project => (
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
+                        {/* project card */}
+                        <img src={project.image ?? 'https://placehold.co/600x400'} alt={project.title} class="w-full aspect-video object-cover" />
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">{project.title}</h3>
+                            <p class="text-slate-600 text-sm mb-4">{project.description}</p>
+                            <div class="mt-auto">
+                                <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">{(project.technologies || []).join(' • ')}</p>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            ) : (
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
+                        <img src="https://placehold.co/600x400/e0f2fe/0284c7?text=Smart+Traffic+Light" alt="Smart Traffic Light" class="w-full aspect-video object-cover" />
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">Smart Traffic Light</h3>
+                            <p class="text-slate-600 text-sm mb-4">Sistem lampu lalu lintas pintar berbasis logika fuzzy dan prioritas RFID.</p>
+                            <div class="mt-auto">
+                                <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">ESP32 • Fuzzy Logic • RFID</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
-                <img src="https://placehold.co/600x400/dcfce7/16a34a?text=Smart+Greenhouse" alt="Smart Greenhouse" class="w-full aspect-video object-cover" />
-                <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="font-bold text-xl text-slate-900 mb-2">Smart Greenhouse</h3>
-                    <p class="text-slate-600 text-sm mb-4">Monitoring suhu dan kelembaban otomatis untuk tanaman hidroponik.</p>
-                    <div class="mt-auto">
-                        <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">NodeMCU • Sensor • IoT</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Project 3 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
-                <img src="https://placehold.co/600x400/f3e8ff/9333ea?text=MQTT+Monitoring" alt="MQTT Monitoring System" class="w-full aspect-video object-cover" />
-                <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="font-bold text-xl text-slate-900 mb-2">MQTT Monitoring System</h3>
-                    <p class="text-slate-600 text-sm mb-4">Sistem pemantauan data sensor real-time menggunakan protokol komunikasi MQTT.</p>
-                    <div class="mt-auto">
-                        <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">Raspberry Pi • MQTT • Node-RED</p>
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
+                        <img src="https://placehold.co/600x400/dcfce7/16a34a?text=Smart+Greenhouse" alt="Smart Greenhouse" class="w-full aspect-video object-cover" />
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">Smart Greenhouse</h3>
+                            <p class="text-slate-600 text-sm mb-4">Monitoring suhu dan kelembaban otomatis untuk tanaman hidroponik.</p>
+                            <div class="mt-auto">
+                                <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">NodeMCU • Sensor • IoT</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 flex flex-col">
+                        <img src="https://placehold.co/600x400/f3e8ff/9333ea?text=MQTT+Monitoring" alt="MQTT Monitoring System" class="w-full aspect-video object-cover" />
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">MQTT Monitoring System</h3>
+                            <p class="text-slate-600 text-sm mb-4">Sistem pemantauan data sensor real-time menggunakan protokol komunikasi MQTT.</p>
+                            <div class="mt-auto">
+                                <p class="text-orange-500 text-sm font-bold bg-orange-50 inline-block px-3 py-1 rounded-md">Raspberry Pi • MQTT • Node-RED</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            )}
         </div>
+
+        { !projects ? (
+            <div class="mt-8 text-center">
+                <a href="/portfolio" class="text-orange-600 font-semibold hover:underline">Lihat semua project →</a>
+            </div>
+        ) : null}
     </div>
 </section>

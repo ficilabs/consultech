@@ -1,0 +1,160 @@
+---
+import type { ProjectBlogPost } from '../../types/index';
+
+interface Props {
+  post: ProjectBlogPost;
+}
+
+const { post } = Astro.props as Props;
+---
+
+<section id="blog" class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mx-auto max-w-3xl">
+      <span class="inline-flex items-center rounded-full bg-orange-100 px-4 py-1 text-sm font-semibold text-orange-700">Blog Proyek</span>
+      <h1 class="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-slate-900">{post.title}</h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">{post.subtitle}</p>
+    </div>
+
+    <div class="mt-14 grid gap-8 lg:grid-cols-[1.4fr_0.6fr]">
+      <article class="space-y-8">
+        <div class="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/60">
+          <img src={post.image} alt={`Screenshot ${post.title}`} class="w-full rounded-[1.5rem] object-cover aspect-[16/9]" />
+
+          <div class="mt-8 space-y-6">
+            <div class="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6">
+              <h2 class="text-2xl font-semibold text-slate-900">Deskripsi Proyek</h2>
+              <p class="mt-4 text-slate-600 leading-relaxed">{post.description}</p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6">
+                <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Teknologi utama</p>
+                <div class="mt-4 space-y-2 text-slate-700">
+                  {post.technologies.map(item => (
+                    <div class="flex items-center gap-3">
+                      <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6">
+                <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Tag penting</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {post.tags.map(tag => (
+                    <span class="rounded-full bg-orange-50 px-3 py-1 text-sm font-medium text-orange-600">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/60">
+          <div class="flex items-center justify-between gap-4 flex-col sm:flex-row">
+            <div>
+              <h2 class="text-2xl font-semibold text-slate-900">Cuplikan Kode</h2>
+              <p class="mt-3 text-slate-600">Bagian inti dari logika kontrol yang mengatur durasi lampu hijau berdasarkan lalu lintas dan permintaan prioritas.</p>
+            </div>
+            <span class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">Arduino C++</span>
+          </div>
+
+          <pre class="mt-8 overflow-x-auto rounded-[1.5rem] bg-slate-950 p-6 text-sm leading-6 text-slate-100">
+            <code>{post.codeSnippet}</code>
+          </pre>
+        </div>
+
+        <div class="grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
+          <div class="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/60">
+            <h2 class="text-2xl font-semibold text-slate-900">Flowchart Sistem</h2>
+            <p class="mt-3 text-slate-600">Visualisasi langkah demi langkah dari aliran data dari sensor hingga sinyal lampu lalu lintas.</p>
+
+            <div class="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-100 bg-slate-900 p-6">
+              <svg viewBox="0 0 820 360" class="w-full h-[320px]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart proyek Smart Traffic Light">
+                <defs>
+                  <linearGradient id="flowgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f97316" />
+                    <stop offset="100%" stop-color="#fb923c" />
+                  </linearGradient>
+                </defs>
+                <rect x="40" y="40" width="220" height="96" rx="28" fill="#0f172a" stroke="#334155" stroke-width="2" />
+                <text x="150" y="70" fill="#f8fafc" font-size="16" font-weight="700" text-anchor="middle">Baca sensor</text>
+                <text x="150" y="96" fill="#cbd5e1" font-size="14" text-anchor="middle">(Traffic + RFID)</text>
+
+                <rect x="300" y="40" width="220" height="96" rx="28" fill="#0f172a" stroke="#334155" stroke-width="2" />
+                <text x="410" y="70" fill="#f8fafc" font-size="16" font-weight="700" text-anchor="middle">Hitung prioritas</text>
+                <text x="410" y="96" fill="#cbd5e1" font-size="14" text-anchor="middle">(Logika fuzzy)</text>
+
+                <rect x="560" y="40" width="220" height="96" rx="28" fill="#0f172a" stroke="#334155" stroke-width="2" />
+                <text x="670" y="70" fill="#f8fafc" font-size="16" font-weight="700" text-anchor="middle">Atur lampu</text>
+                <text x="670" y="96" fill="#cbd5e1" font-size="14" text-anchor="middle">{`(Waktu hijau variabel)`}</text>
+
+                <path d="M260 88 H300" stroke="#fb923c" stroke-width="4" marker-end="url(#arrow)" fill="none" />
+                <path d="M520 88 H560" stroke="#fb923c" stroke-width="4" marker-end="url(#arrow)" fill="none" />
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#fb923c" />
+                  </marker>
+                </defs>
+
+                <rect x="300" y="190" width="220" height="96" rx="28" fill="url(#flowgrad)" stroke="#f97316" stroke-width="2" />
+                <text x="410" y="222" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">Umpan balik</text>
+                <text x="410" y="248" fill="#fde68a" font-size="14" text-anchor="middle">(Monitoring real-time)</text>
+
+                <path d="M410 136 V190" stroke="#fb923c" stroke-width="4" marker-end="url(#arrow)" fill="none" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-[2rem] border border-slate-100 bg-white p-8 shadow-xl shadow-slate-200/60">
+              <h3 class="text-xl font-semibold text-slate-900">Hasil utama</h3>
+              <ul class="mt-5 space-y-4 text-slate-600">
+                <li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></span>Respons lampu yang adaptif terhadap kondisi lalu lintas.</li>
+                <li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></span>Integrasi prioritas RFID untuk kendaraan darurat.</li>
+                <li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></span>Struktur kode yang mudah dipelajari dan dikembangkan.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-[2rem] bg-gradient-to-br from-orange-500 to-orange-400 p-8 text-white shadow-xl shadow-orange-500/20">
+              <p class="text-sm uppercase tracking-[0.2em] text-orange-100">Tips implementasi</p>
+              <h3 class="mt-4 text-2xl font-semibold">Pelajari alur dari simulasi ke prototipe</h3>
+              <p class="mt-4 text-slate-100 leading-relaxed">Mulailah dengan perhitungan logika dan sensor sebelum membuat soket Wi-Fi dan antarmuka dashboard.</p>
+              <a href={post.image} class="mt-6 inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-orange-600 shadow-md shadow-orange-500/20 hover:bg-slate-100">Lihat ilustrasi lebih jelas</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="space-y-6">
+        <div class="rounded-[2rem] border border-slate-100 bg-white p-8 shadow-xl shadow-slate-200/60">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Ringkasan proyek</p>
+          <h2 class="mt-4 text-2xl font-semibold text-slate-900">Apa yang kamu dapatkan</h2>
+          <div class="mt-6 space-y-4 text-slate-600">
+            <div class="rounded-3xl bg-slate-50 p-4">
+              <p class="text-sm font-semibold text-slate-900">Problem</p>
+              <p class="mt-2">Mengoptimalkan durasi lampu untuk mengurangi waktu tunggu di persimpangan.</p>
+            </div>
+            <div class="rounded-3xl bg-slate-50 p-4">
+              <p class="text-sm font-semibold text-slate-900">Solusi</p>
+              <p class="mt-2">Gunakan data sensor dan prioritas RFID dengan logika fuzzy untuk menyesuaikan sinyal secara dinamis.</p>
+            </div>
+            <div class="rounded-3xl bg-slate-50 p-4">
+              <p class="text-sm font-semibold text-slate-900">Nilai</p>
+              <p class="mt-2">Pengurangan kemacetan, pengalaman belajar, dan dokumentasi yang jelas untuk presentasi skripsi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/60">
+          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Langkah berikutnya</p>
+          <h3 class="mt-4 text-2xl font-semibold text-slate-900">Kembangkan proyekmu</h3>
+          <p class="mt-4 text-slate-600 leading-relaxed">Mulai dari percobaan sensor, lalu susun diagram alur, dan akhiri dengan demonstrasi kode agar mudah dipahami oleh pembimbing dan tim.</p>
+          <a href="https://wa.me/" class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-orange-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 hover:bg-orange-600">Konsultasi dengan mentor</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

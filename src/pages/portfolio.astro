@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/common/Navbar.astro';
+import Footer from '../components/common/Footer.astro';
+import WhatsAppButton from '../components/common/WhatsAppButton.astro';
+import ExitPopup from '../components/modals/ExitPopup.astro';
+import PortfolioSection from '../components/sections/Portfolio.astro';
+import { projects } from '../data/portfolio';
+import { PAGE_TITLE, WHATSAPP_LINK } from '../utils/constants';
+
+const whatsappLink = WHATSAPP_LINK;
+const title = `${PAGE_TITLE} — Portofolio`;
+const description = 'Daftar lengkap project yang pernah dibuat dan didampingi oleh Kampus IoT.';
+---
+
+<MainLayout title={title} description={description}>
+  <Navbar whatsappLink={whatsappLink} />
+
+  <main>
+    <PortfolioSection projects={projects} />
+  </main>
+
+  <Footer />
+
+  <WhatsAppButton whatsappLink={whatsappLink} />
+  <ExitPopup whatsappLink={whatsappLink} />
+</MainLayout>
